@@ -35,7 +35,8 @@ export const CreateProductForm = () => {
   });
 
   const onSubmit = (data: any) => {
-    localStorage.setItem("products", JSON.stringify(data));
+    //localStorage.setItem("products", JSON.stringify(data));
+    console.log(data);
   };
 
   return (
@@ -50,10 +51,9 @@ export const CreateProductForm = () => {
         <FormControl my="5">
           <FormLabel color="gray.500">Product name</FormLabel>
           <Input {...register("name")} />
-
           {errors.name && (
             // @ts-ignore
-            <Text color="red.500">{errors.name?.message}</Text>
+            <span color="red.500">{errors.name.message}</span>
           )}
         </FormControl>
 
@@ -62,7 +62,7 @@ export const CreateProductForm = () => {
           <Textarea {...register("description")} placeholder="description" />
           {errors.description && (
             // @ts-ignore
-            <Text color="red.500">{errors.description?.message}</Text>
+            <Text color="red.500">{errors.description.message}</Text>
           )}
         </FormControl>
 
@@ -70,9 +70,17 @@ export const CreateProductForm = () => {
           <FormLabel color="gray.500">Product category</FormLabel>
           <Select placeholder="Select product category">
             <option value="electronics">Electronics</option>
-            <option value="clothe">Clothe</option>
+            <option value="cloths">Cloths</option>
+            <option value="vehicle">Vehicle</option>
+            <option value="cosmetics">Cosmetics</option>
+            <option value="property">Property</option>
           </Select>
         </FormControl>
+
+        {errors.category && (
+          // @ts-ignore
+          <Text color="red.500">{errors.category?.message}</Text>
+        )}
 
         <FormControl my="5">
           <FormLabel color="gray.500">Picture URL</FormLabel>

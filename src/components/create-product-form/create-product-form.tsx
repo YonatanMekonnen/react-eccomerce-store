@@ -53,7 +53,7 @@ export const CreateProductForm = () => {
           <Input {...register("name")} />
           {errors.name && (
             // @ts-ignore
-            <span color="red.500">{errors.name.message}</span>
+            <Text color="red.500">{errors.name.message}</Text>
           )}
         </FormControl>
 
